@@ -1,3 +1,5 @@
+pipeline {
+
 node {
   def app
   stage('Clone repository') {
@@ -12,4 +14,5 @@ node {
       app.push("${env.BRANCH_NAME}-latest")
     }
   }
+}
 }
