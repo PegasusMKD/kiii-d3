@@ -2,7 +2,8 @@ pipeline {
 agent any
 node {
   def app
-  stage('Clone repository') {
+  stages {
+   stage('Clone repository') {
     checkout scm
   }
   stage('Build image') {
@@ -13,6 +14,7 @@ node {
       app.push("${env.BRANCH_NAME}-${env.BUILD_NUMBER}")
       app.push("${env.BRANCH_NAME}-latest")
     }
+  } 
   }
 }
 }
